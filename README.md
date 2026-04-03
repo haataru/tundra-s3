@@ -31,14 +31,14 @@ curl -X DELETE http://localhost:8080/mybucket/
 
 ## API
 
-### PUT /{bucket}/{key} — Загрузить файл
+### PUT /{bucket}/{key} - Загрузить файл
 
 ```bash
 curl -X PUT -T file.txt http://localhost:8080/mybucket/file.txt
 curl -X PUT --data-binary @image.jpg http://localhost:8080/mybucket/image.jpg
 ```
 
-### GET /{bucket}/{key} — Скачать файл
+### GET /{bucket}/{key} - Скачать файл
 
 ```bash
 # В консоль
@@ -51,27 +51,27 @@ curl http://localhost:8080/mybucket/file.txt -o file.txt
 curl -H "Range: bytes=0-1023" http://localhost:8080/mybucket/file.txt
 ```
 
-### HEAD /{bucket}/{key} — Метаданные
+### HEAD /{bucket}/{key} - Метаданные
 
 ```bash
 curl -I http://localhost:8080/mybucket/file.txt
 ```
 
-### DELETE /{bucket}/{key} — Удалить объект
+### DELETE /{bucket}/{key} - Удалить объект
 
 ```bash
 curl -X DELETE http://localhost:8080/mybucket/file.txt
 # Ответ: 204 No Content
 ```
 
-### DELETE /{bucket}/ — Удалить бакет
+### DELETE /{bucket}/ - Удалить бакет
 
 ```bash
 curl -X DELETE http://localhost:8080/mybucket/
 # Ответ: 204 No Content
 ```
 
-### GET /{bucket}/ — Список объектов
+### GET /{bucket}/ - Список объектов
 
 ```bash
 # Все файлы
@@ -107,21 +107,21 @@ src/
 │   └── routing.go  # Маршрутизация
 ├── storage/        # Слой хранения
 │   ├── storage.go  # DiskStorage (Put/Get/Delete/List)
-│   └── stream.go  # ETag (MD5)
+│   └── stream.go   # ETag (MD5)
 ├── types/          # Интерфейсы и типы
-│   └── types.go   # Storage interface, ObjectInfo
+│   └── types.go    # Storage interface, ObjectInfo
 └── utils/          # Утилиты
     ├── validate.go # Валидация бакета и ключа
-    └── path.go    # Безопасные пути
+    └── path.go     # Безопасные пути
 ```
 
 ## Хранение
 
 ```
 data/                    # создается автоматически
-├── .tmp/               # временные файлы при загрузке
+├── .tmp/                # временные файлы при загрузке
 └── {bucket}/
-    └── {key}           # data/mybucket/file.txt
+    └── {key}            # data/mybucket/file.txt
 ```
 
 ## Ограничения прототипа
