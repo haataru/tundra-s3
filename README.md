@@ -96,7 +96,7 @@ curl "http://localhost:8080/mybucket/?delimiter=/"
 - Не может начинаться с /
 - Запрещены ".." (защита от path traversal)
 
-## Архитектура
+## Структура
 
 ```
 src/
